@@ -15,8 +15,10 @@ U = TypeVar("U")
 
 
 class No_Error(Exception):
-    """this is no errors and this is created to
-    put in the scond type in Potential_Error if there is no error"""
+    """
+    this is no errors and this is created to
+    put in the scond type in Potential_Error if there is no error
+    """
     pass
 
 
@@ -46,7 +48,7 @@ class Potential_Error(Generic[U, T]):
             return self.__val
         if self.error != No_Error:
             raise Attmped_To_Dewrap_While_Have_Error(
-                                                    "you mustn't have errors" 
+                                                    "you mustn't have errors"
                                                     " inorder to dewrapp")
         raise Did_Not_Handeled_Exception(
                                         "you forgot to handle the "

@@ -38,6 +38,7 @@ class Potential_Error(Generic[U, T]):
             self.error = error
         self.handled = False
 
+    @property
     def stat(self) -> Result:
         self.Handled = True
         return self.raw_stat()
@@ -64,7 +65,7 @@ class Potential_Error(Generic[U, T]):
         this makes it so that it deosn't remember that
         it handle the variable.
         """
-        if self.error is None or isinstance(self.error, No_Error):
+        if isinstance(self.error, No_Error):
             return Result.PASS
         else:
             return Result.FAIL

@@ -9,8 +9,6 @@ class Result(Enum):
 
 
 T = TypeVar("T", bound=Exception)
-
-
 U = TypeVar("U")
 
 
@@ -34,7 +32,10 @@ class Potential_Error(Generic[U, T]):
 
     def __init__(self, value: U, error: Optional[T] = None):
         self.__val = value
-        self.error = error
+        if error is None:
+            self.error = No_Error()
+        else:
+            self.error = error
         self.handled = False
 
     def stat(self) -> Result:
@@ -48,19 +49,21 @@ class Potential_Error(Generic[U, T]):
             return self.__val
         if self.error != No_Error:
             raise Attmped_To_Dewrap_While_Have_Error(
-                                                    "you mustn't have errors"
-                                                    " inorder to dewrapp")
+                                                    "you mustn't have errors "
+                                                    "inorder to dewrapp")
         raise Did_Not_Handeled_Exception(
                                         "you forgot to handle the "
                                         "speciel case. That case "
                                         "being if an error "
-                                        "occured. Inordr to fix"
+                                        "occured. Inordr to fix "
                                         "this you must call the "
                                         "stat method, then do this")
 
     def raw_stat(self):
-        """this makes it so that it deosn't remember
-        that it handle the variable."""
+        """
+        this makes it so that it deosn't remember that
+        it handle the variable.
+        """
         if self.error is None or isinstance(self.error, No_Error):
             return Result.PASS
         else:
@@ -91,7 +94,9 @@ def func_result_to_potential_error(func):
 
 
 def dangerous_func_to_potntial_error(func):
-    """this is for functions with raise"""
+    """
+    this is for functions with raise
+    """
     def auto_wrap(*args, **kwargs):
         try:
             result = func(args, kwargs)

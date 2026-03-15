@@ -7,7 +7,8 @@ Inorder to do this, you must first install the package using ```pip install erro
 After that, you can use the ```Potential_Error``` class for safe results, you can do so like this ```Potential_Error("random string")```, meanwhile for dangerous result, you can do this ```Potential_Error(None,Random_Error)```.
 
 Inorder to get the result you must use the dwrap method like so ```exsample.dewrap()```, only AFTER you get the stat from the ```stat``` method, and handle the errors like so
-``` text
+
+``` python
 exsampl = Potential_Error("random string")
 if exsample.stat() == Result.FAIL:
     # handleing error

@@ -1,11 +1,13 @@
 Metadata-Version: 2.4
 Name: error_values
-Version: 0.1.7
+Version: 0.1.8
 Description-Content-Type: text/markdown
 Dynamic: description
 Dynamic: description-content-type
 
 # Potential errors in python
+
+github page <https://github.com/codingpwlorsk/error_vals_in_python>
 
 this package allows you to handle errors like in go and rust.
 

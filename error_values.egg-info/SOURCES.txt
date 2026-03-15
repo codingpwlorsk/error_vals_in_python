@@ -1,3 +1,7 @@
+README.md
+setup.py
+error_values/__init__.py
+error_values/errors.py
 error_values.egg-info/PKG-INFO
 error_values.egg-info/SOURCES.txt
 error_values.egg-info/dependency_links.txt
